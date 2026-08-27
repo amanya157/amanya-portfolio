@@ -1,0 +1,336 @@
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  padding: 80px 0 25px;
+  background: #030914;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   MAIN FOOTER CONTAINER
+   ========================================================= */
+
+.footer-container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+
+  gap: 55px;
+}
+
+
+/* =========================================================
+   FOOTER BRAND
+   ========================================================= */
+
+.footer-brand {
+  max-width: 330px;
+}
+
+
+/* Logo and name */
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: white;
+  text-decoration: none;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+
+/* Logo image */
+
+.footer-logo img {
+  width: 42px;
+  height: 42px;
+
+  object-fit: contain;
+}
+
+
+/* Description */
+
+.footer-description {
+  margin-top: 20px;
+
+  color: #8793a5;
+
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+
+/* Professional role */
+
+.footer-role {
+  margin-top: 18px;
+
+  color: #d4af37;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+   ========================================================= */
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 13px;
+}
+
+
+/* Column heading */
+
+.footer-column h3 {
+  margin: 0 0 10px;
+
+  color: white;
+
+  font-size: 0.9rem;
+}
+
+
+/* Footer links */
+
+.footer-column a {
+  color: #8793a5;
+
+  text-decoration: none;
+
+  font-size: 0.86rem;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* Footer link hover */
+
+.footer-column a:hover {
+  color: #d4af37;
+
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+   ========================================================= */
+
+.footer-socials {
+  width: min(1200px, 92%);
+
+  margin: 55px auto 35px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+/* Individual social icon */
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #b5bfcc;
+
+  text-decoration: none;
+
+  font-size: 1.05rem;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+
+/* =========================================================
+   SOCIAL ICON IMAGES / SVGs
+   ========================================================= */
+
+/*
+   These styles allow the official logos to be placed
+   inside the social buttons.
+
+   Your JSX can contain:
+
+   <img src="..." alt="LinkedIn" />
+
+   or SVG/icon components.
+*/
+
+.social-icon img,
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+
+  display: block;
+
+  object-fit: contain;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   SOCIAL ICON HOVER
+   ========================================================= */
+
+.social-icon:hover {
+  transform: translateY(-4px);
+
+  color: #d4af37;
+
+  border-color: rgba(212, 175, 55, 0.4);
+
+  background: rgba(212, 175, 55, 0.06);
+}
+
+
+.social-icon:hover img,
+.social-icon:hover svg {
+  transform: scale(1.08);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom {
+  width: min(1200px, 92%);
+
+  margin: 0 auto;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+/* Copyright and developer credit */
+
+.footer-bottom p {
+  margin: 0;
+
+  color: #596678;
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 45px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .footer {
+    padding-top: 65px;
+  }
+
+
+  .footer-container {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+
+  .footer-brand {
+    max-width: 100%;
+  }
+
+
+  .footer-socials {
+    justify-content: flex-start;
+
+    margin-top: 45px;
+  }
+
+
+  .footer-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+
+  .social-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+
+  .social-icon img,
+  .social-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+}

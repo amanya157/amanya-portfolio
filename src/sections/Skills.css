@@ -1,0 +1,102 @@
+.skills-section {
+  padding: 110px 0;
+  background: #050d1a;
+}
+
+.skills-container {
+  width: min(1300px, 92%);
+  margin: 0 auto;
+}
+
+.skills-heading {
+  max-width: 850px;
+  margin-bottom: 55px;
+}
+
+.skills-intro {
+  max-width: 720px;
+  margin-top: 25px;
+  color: #9da9b9;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.technology-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.technology-card {
+  min-height: 120px;
+  padding: 22px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.technology-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(212, 175, 55, 0.04);
+}
+
+.technology-icon {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+
+  color: #d4af37;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.technology-card:nth-child(4) .technology-icon {
+  font-size: 1.7rem;
+}
+
+.technology-info h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.technology-info p {
+  color: #7f8b9b;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 900px) {
+  .technology-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-section {
+    padding: 90px 0;
+  }
+
+  .technology-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,117 @@
+.training-section {
+  padding: 110px 0;
+  background: #071525;
+}
+
+.training-container {
+  width: min(1300px, 92%);
+  margin: 0 auto;
+}
+
+.training-heading {
+  max-width: 850px;
+  margin-bottom: 55px;
+}
+
+.training-intro {
+  max-width: 700px;
+  margin-top: 24px;
+  color: #9da9b9;
+  line-height: 1.8;
+}
+
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.training-card {
+  position: relative;
+  padding: 34px;
+  min-height: 330px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.training-card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.06);
+  filter: blur(55px);
+  right: -70px;
+  bottom: -70px;
+}
+
+.training-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+.training-number {
+  color: #d4af37;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 45px;
+}
+
+.training-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.training-type {
+  color: #788697;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.training-card h3 {
+  margin: 12px 0 18px;
+  font-size: 1.8rem;
+}
+
+.training-card p {
+  color: #9da9b9;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.training-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+.training-tags span {
+  padding: 7px 11px;
+  border-radius: 6px;
+  background: rgba(212, 175, 55, 0.08);
+  color: #c6a83d;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 750px) {
+  .training-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .training-card {
+    min-height: auto;
+  }
+}

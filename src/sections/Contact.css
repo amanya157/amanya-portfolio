@@ -1,0 +1,291 @@
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.contact-section {
+  padding: 110px 0;
+  background: #050d1a;
+}
+
+.contact-container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.contact-heading {
+  max-width: 850px;
+  margin-bottom: 60px;
+}
+
+.contact-intro {
+  max-width: 720px;
+  margin-top: 24px;
+
+  color: #9da9b9;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTACT CONTENT
+   ========================================================= */
+
+.contact-content {
+  display: grid;
+
+  grid-template-columns: 0.8fr 1.2fr;
+
+  gap: 70px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   CONTACT INFORMATION
+   ========================================================= */
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact-info-block {
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-info-block span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #788697;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+/* Email and phone links */
+.contact-info-block a {
+  display: block;
+
+  width: fit-content;
+
+  margin-bottom: 7px;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 1rem;
+
+  transition: color 0.3s ease;
+}
+
+.contact-info-block a:hover {
+  color: #d4af37;
+}
+
+
+/* Role text */
+.contact-info-block p {
+  color: white;
+
+  margin: 0;
+
+  font-size: 1rem;
+}
+
+
+/* Small message at bottom */
+.contact-info-message {
+  padding: 25px;
+
+  border-radius: 16px;
+
+  background: rgba(212, 175, 55, 0.05);
+
+  border: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.contact-info-message p {
+  color: #aeb9c8;
+
+  line-height: 1.7;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+
+.contact-form {
+  padding: 35px;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* Individual form field */
+.form-group {
+  margin-bottom: 22px;
+}
+
+
+/* Form labels */
+.form-group label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #d8dee7;
+
+  font-size: 0.82rem;
+}
+
+
+/* Inputs and textarea */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 0.92rem;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+
+/* Placeholder text */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #657286;
+}
+
+
+/* Focus state */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: rgba(212, 175, 55, 0.6);
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* Textarea */
+.form-group textarea {
+  resize: vertical;
+
+  min-height: 150px;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+   ========================================================= */
+
+.contact-submit {
+  width: 100%;
+
+  padding: 15px 20px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #d4af37;
+
+  color: #071525;
+
+  font-family: inherit;
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.contact-submit:hover {
+  transform: translateY(-2px);
+
+  background: #e1c15a;
+}
+
+.contact-submit span {
+  font-size: 1.1rem;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .contact-content {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .contact-section {
+    padding: 90px 0;
+  }
+
+  .contact-form {
+    padding: 25px;
+  }
+
+}
