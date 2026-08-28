@@ -1,3 +1,7 @@
+// =========================================================
+// FOOTER
+// =========================================================
+
 import "./Footer.css";
 
 import {
@@ -52,7 +56,6 @@ function Footer() {
 
         </div>
 
-
         {/* =================================================
             QUICK LINKS
         ================================================== */}
@@ -92,7 +95,6 @@ function Footer() {
           </a>
 
         </div>
-
 
         {/* =================================================
             CONNECT
@@ -134,7 +136,6 @@ function Footer() {
 
         </div>
 
-
         {/* =================================================
             MORE
         ================================================== */}
@@ -161,14 +162,11 @@ function Footer() {
 
       </div>
 
-
       {/* =================================================
           SOCIAL ICONS
       ================================================== */}
 
       <div className="footer-socials">
-
-        {/* LinkedIn */}
 
         <a
           href="https://www.linkedin.com/in/amanya-godfrey-74b20b318/"
@@ -180,9 +178,6 @@ function Footer() {
           <FaLinkedinIn />
         </a>
 
-
-        {/* Instagram */}
-
         <a
           href="https://www.instagram.com/godfrey_amanya/"
           target="_blank"
@@ -192,9 +187,6 @@ function Footer() {
         >
           <FaInstagram />
         </a>
-
-
-        {/* WhatsApp */}
 
         <a
           href="https://wa.me/250794440331"
@@ -206,9 +198,6 @@ function Footer() {
           <FaWhatsapp />
         </a>
 
-
-        {/* Second WhatsApp */}
-
         <a
           href="https://wa.me/250756523276"
           target="_blank"
@@ -219,9 +208,6 @@ function Footer() {
           <FaWhatsapp />
         </a>
 
-
-        {/* Email */}
-
         <a
           href="mailto:amanyag157@gmail.com"
           aria-label="Email Amanya Godfrey"
@@ -231,7 +217,6 @@ function Footer() {
         </a>
 
       </div>
-
 
       {/* =================================================
           FOOTER BOTTOM

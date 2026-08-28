@@ -1,5 +1,10 @@
+// =========================================================
+// ADMIN LOGIN PAGE
+// =========================================================
+
 import { useState } from "react";
 import "./Admin.css";
+
 import logo from "../assets/logo.png";
 
 function Admin() {
@@ -10,9 +15,8 @@ function Admin() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-
   // =======================================================
-  // ADMIN LOGIN
+  // HANDLE LOGIN
   // =======================================================
 
   const handleLogin = async (e) => {
@@ -40,9 +44,7 @@ function Admin() {
         }
       );
 
-
       const data = await response.json();
-
 
       if (!response.ok) {
 
@@ -52,30 +54,27 @@ function Admin() {
 
       }
 
-
-      // ===================================================
+      // =================================================
       // SAVE JWT TOKEN
-      // ===================================================
+      // =================================================
 
       localStorage.setItem(
         "adminToken",
         data.token
       );
 
-
-      // ===================================================
+      // =================================================
       // SAVE ADMIN INFORMATION
-      // ===================================================
+      // =================================================
 
       localStorage.setItem(
         "adminUser",
         JSON.stringify(data.admin)
       );
 
-
-      // ===================================================
+      // =================================================
       // GO TO DASHBOARD
-      // ===================================================
+      // =================================================
 
       window.location.href = "/admin/dashboard";
 
@@ -88,7 +87,7 @@ function Admin() {
 
       setError(
         error.message ||
-        "Something went wrong."
+        "Login failed."
       );
 
     } finally {
@@ -99,13 +98,15 @@ function Admin() {
 
   };
 
+  // =======================================================
+  // RENDER
+  // =======================================================
 
   return (
 
     <main className="admin-page">
 
       <div className="admin-login-container">
-
 
         {/* =================================================
             BRAND
@@ -128,7 +129,6 @@ function Admin() {
 
         </div>
 
-
         {/* =================================================
             LOGIN CARD
         ================================================== */}
@@ -143,7 +143,6 @@ function Admin() {
             Sign in to access your portfolio dashboard.
           </p>
 
-
           {/* =================================================
               ERROR MESSAGE
           ================================================== */}
@@ -156,13 +155,11 @@ function Admin() {
 
           )}
 
-
           {/* =================================================
               LOGIN FORM
           ================================================== */}
 
           <form onSubmit={handleLogin}>
-
 
             {/* Email */}
 
@@ -185,7 +182,6 @@ function Admin() {
 
             </div>
 
-
             {/* Password */}
 
             <div className="admin-field">
@@ -197,7 +193,7 @@ function Admin() {
               <input
                 id="password"
                 type="password"
-                placeholder="Enter your password"
+                placeholder="Enter your admin password"
                 value={password}
                 onChange={(e) =>
                   setPassword(e.target.value)
@@ -206,7 +202,6 @@ function Admin() {
               />
 
             </div>
-
 
             {/* Login button */}
 
@@ -224,7 +219,6 @@ function Admin() {
 
           </form>
 
-
           {/* =================================================
               BACK TO PORTFOLIO
           ================================================== */}
@@ -241,7 +235,6 @@ function Admin() {
       </div>
 
     </main>
-
   );
 }
 

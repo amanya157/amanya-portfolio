@@ -1,10 +1,18 @@
-import "./Hero.css";
+// =========================================================
+// HERO SECTION
+// =========================================================
+
 import heroImage from "../assets/Hero.png";
 
 function Hero() {
   return (
     <section className="hero" id="home">
+
       <div className="hero-container">
+
+        {/* =================================================
+            HERO CONTENT
+        ================================================== */}
 
         <div className="hero-content">
 
@@ -21,13 +29,17 @@ function Hero() {
           </h2>
 
           <p className="hero-description">
-            I design and develop modern, responsive and functional digital
-            experiences that bring ideas to life. I combine frontend
-            development, backend technologies and database solutions to build
-            websites and applications that are not only visually appealing,
-            but also reliable, practical and designed around the needs of
-            their users.
+            I design and develop modern, responsive and functional
+            digital experiences that bring ideas to life. I combine
+            frontend development, backend technologies and database
+            solutions to build websites and applications that are
+            not only visually appealing, but also reliable,
+            practical and designed around the needs of their users.
           </p>
+
+          {/* =================================================
+              HERO BUTTONS
+          ================================================== */}
 
           <div className="hero-buttons">
 
@@ -47,26 +59,49 @@ function Hero() {
 
           </div>
 
+          {/* =================================================
+              HERO STATS
+          ================================================== */}
+
           <div className="hero-stats">
 
             <div>
-              <strong>Full Stack</strong>
-              <span>Development</span>
+              <strong>
+                Full Stack
+              </strong>
+
+              <span>
+                Development
+              </span>
             </div>
 
             <div>
-              <strong>Modern</strong>
-              <span>Web Solutions</span>
+              <strong>
+                Modern
+              </strong>
+
+              <span>
+                Web Solutions
+              </span>
             </div>
 
             <div>
-              <strong>Always</strong>
-              <span>Learning</span>
+              <strong>
+                Always
+              </strong>
+
+              <span>
+                Learning
+              </span>
             </div>
 
           </div>
 
         </div>
+
+        {/* =================================================
+            HERO VISUAL
+        ================================================== */}
 
         <div className="hero-visual">
 
@@ -81,35 +116,74 @@ function Hero() {
 
           </div>
 
+          {/* =================================================
+              FRONTEND CARD
+          ================================================== */}
+
           <div className="floating-card card-one">
 
-            <span>⚡</span>
+            <span>
+              ⚡
+            </span>
 
             <div>
-              <strong>Frontend</strong>
-              <small>Modern Interfaces</small>
+
+              <strong>
+                Frontend
+              </strong>
+
+              <small>
+                Modern Interfaces
+              </small>
+
             </div>
 
           </div>
+
+          {/* =================================================
+              BACKEND CARD
+          ================================================== */}
 
           <div className="floating-card card-two">
 
-            <span>⌘</span>
+            <span>
+              ⌘
+            </span>
 
             <div>
-              <strong>Backend</strong>
-              <small>Powerful Systems</small>
+
+              <strong>
+                Backend
+              </strong>
+
+              <small>
+                Powerful Systems
+              </small>
+
             </div>
 
           </div>
 
+          {/* =================================================
+              DATABASE CARD
+          ================================================== */}
+
           <div className="floating-card card-three">
 
-            <span>◈</span>
+            <span>
+              ◈
+            </span>
 
             <div>
-              <strong>Database</strong>
-              <small>Smart Solutions</small>
+
+              <strong>
+                Database
+              </strong>
+
+              <small>
+                Smart Solutions
+              </small>
+
             </div>
 
           </div>
@@ -117,6 +191,7 @@ function Hero() {
         </div>
 
       </div>
+
     </section>
   );
 }

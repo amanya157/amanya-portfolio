@@ -4,6 +4,7 @@
 
 import { useEffect, useState } from "react";
 import "./AdminDashboard.css";
+
 import logo from "../assets/logo.png";
 
 function AdminDashboard() {
@@ -18,7 +19,6 @@ function AdminDashboard() {
 
   const [error, setError] = useState("");
 
-
   // =======================================================
   // LOAD MESSAGES
   // =======================================================
@@ -32,7 +32,6 @@ function AdminDashboard() {
         const token =
           localStorage.getItem("adminToken");
 
-
         // =================================================
         // CHECK TOKEN
         // =================================================
@@ -42,9 +41,7 @@ function AdminDashboard() {
           window.location.href = "/admin";
 
           return;
-
         }
-
 
         // =================================================
         // REQUEST MESSAGES
@@ -61,9 +58,7 @@ function AdminDashboard() {
           }
         );
 
-
         const data = await response.json();
-
 
         // =================================================
         // TOKEN INVALID / EXPIRED
@@ -71,20 +66,13 @@ function AdminDashboard() {
 
         if (response.status === 401) {
 
-          localStorage.removeItem(
-            "adminToken"
-          );
-
-          localStorage.removeItem(
-            "adminUser"
-          );
+          localStorage.removeItem("adminToken");
+          localStorage.removeItem("adminUser");
 
           window.location.href = "/admin";
 
           return;
-
         }
-
 
         // =================================================
         // OTHER ERROR
@@ -98,7 +86,6 @@ function AdminDashboard() {
           );
 
         }
-
 
         // =================================================
         // SAVE MESSAGES
@@ -117,7 +104,7 @@ function AdminDashboard() {
 
         setError(
           error.message ||
-          "Something went wrong."
+          "Failed to load messages."
         );
 
       } finally {
@@ -128,11 +115,9 @@ function AdminDashboard() {
 
     };
 
-
     fetchMessages();
 
   }, []);
-
 
   // =======================================================
   // LOGOUT
@@ -140,18 +125,13 @@ function AdminDashboard() {
 
   const handleLogout = () => {
 
-    localStorage.removeItem(
-      "adminToken"
-    );
+    localStorage.removeItem("adminToken");
 
-    localStorage.removeItem(
-      "adminUser"
-    );
+    localStorage.removeItem("adminUser");
 
     window.location.href = "/admin";
 
   };
-
 
   // =======================================================
   // ADMIN INFORMATION
@@ -164,7 +144,6 @@ function AdminDashboard() {
       ) || "{}"
     );
 
-
   // =======================================================
   // DASHBOARD
   // =======================================================
@@ -172,7 +151,6 @@ function AdminDashboard() {
   return (
 
     <main className="dashboard-page">
-
 
       {/* =================================================
           SIDEBAR
@@ -201,7 +179,6 @@ function AdminDashboard() {
 
         </div>
 
-
         <nav className="dashboard-nav">
 
           <a href="/admin/dashboard">
@@ -218,7 +195,6 @@ function AdminDashboard() {
 
         </nav>
 
-
         <button
           className="logout-button"
           onClick={handleLogout}
@@ -228,13 +204,11 @@ function AdminDashboard() {
 
       </aside>
 
-
       {/* =================================================
           MAIN CONTENT
       ================================================== */}
 
       <section className="dashboard-content">
-
 
         {/* Header */}
 
@@ -263,7 +237,6 @@ function AdminDashboard() {
 
         </header>
 
-
         {/* =================================================
             STATISTICS
         ================================================== */}
@@ -282,7 +255,6 @@ function AdminDashboard() {
 
           </div>
 
-
           <div className="stat-card">
 
             <span>
@@ -294,7 +266,6 @@ function AdminDashboard() {
             </strong>
 
           </div>
-
 
           <div className="stat-card">
 
@@ -309,7 +280,6 @@ function AdminDashboard() {
           </div>
 
         </section>
-
 
         {/* =================================================
             MESSAGES
@@ -340,7 +310,6 @@ function AdminDashboard() {
 
           </div>
 
-
           {/* Loading */}
 
           {loading && (
@@ -351,7 +320,6 @@ function AdminDashboard() {
 
           )}
 
-
           {/* Error */}
 
           {!loading && error && (
@@ -361,7 +329,6 @@ function AdminDashboard() {
             </div>
 
           )}
-
 
           {/* Empty */}
 
@@ -374,7 +341,6 @@ function AdminDashboard() {
               </div>
 
             )}
-
 
           {/* Messages */}
 
@@ -415,7 +381,6 @@ function AdminDashboard() {
 
                     </div>
 
-
                     <div className="message-subject">
 
                       <strong>
@@ -426,7 +391,6 @@ function AdminDashboard() {
                         "No Subject"}
 
                     </div>
-
 
                     <p className="message-text">
                       {message.message}
