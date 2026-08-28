@@ -2,7 +2,7 @@
 // HERO SECTION
 // =========================================================
 
-import heroImage from "../assets/Hero.png";
+import heroImage from "../assets/hero.png";
 
 function Hero() {
   return (
