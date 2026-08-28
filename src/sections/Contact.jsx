@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./Contact.css";
 
@@ -38,23 +39,31 @@ function Contact() {
     setStatus("");
 
     try {
-      const response = await fetch("http://localhost:7001/api/contact", {
-        method: "POST",
+      const response = await fetch(
+        "https://amanya-portfolio-backend.onrender.com/api/contact",
+        {
+          method: "POST",
 
-        headers: {
-          "Content-Type": "application/json",
-        },
+          headers: {
+            "Content-Type": "application/json",
+          },
 
-        body: JSON.stringify(formData),
-      });
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Failed to send message.");
+        throw new Error(
+          data.message || "Failed to send message."
+        );
       }
 
-      // Successful submission
+      // =======================================================
+      // SUCCESSFUL SUBMISSION
+      // =======================================================
+
       setStatus("success");
 
       // Clear form
@@ -66,23 +75,32 @@ function Contact() {
       });
 
     } catch (error) {
-      console.error("Contact form error:", error);
+
+      console.error(
+        "Contact form error:",
+        error
+      );
 
       setStatus("error");
 
     } finally {
+
       setIsSubmitting(false);
+
     }
   };
 
   return (
-    <section className="contact-section" id="contact">
+    <section
+      className="contact-section"
+      id="contact"
+    >
 
       <div className="contact-container">
 
         {/* =================================================
             SECTION HEADING
-            ================================================= */}
+        ================================================== */}
 
         <div className="section-heading contact-heading">
 
@@ -104,7 +122,7 @@ function Contact() {
 
         {/* =================================================
             CONTACT FORM
-            ================================================= */}
+        ================================================== */}
 
         <form
           className="contact-form"
@@ -194,7 +212,9 @@ function Contact() {
           </div>
 
 
-          {/* Submit button */}
+          {/* =================================================
+              SUBMIT BUTTON
+          ================================================== */}
 
           <button
             type="submit"
@@ -209,7 +229,9 @@ function Contact() {
           </button>
 
 
-          {/* Success message */}
+          {/* =================================================
+              SUCCESS MESSAGE
+          ================================================== */}
 
           {status === "success" && (
             <p className="form-success">
@@ -218,7 +240,9 @@ function Contact() {
           )}
 
 
-          {/* Error message */}
+          {/* =================================================
+              ERROR MESSAGE
+          ================================================== */}
 
           {status === "error" && (
             <p className="form-error">
@@ -235,3 +259,4 @@ function Contact() {
 }
 
 export default Contact;
+

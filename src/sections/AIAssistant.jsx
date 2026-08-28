@@ -45,7 +45,7 @@ function AIAssistant() {
       // SEND QUESTION TO BACKEND
       // =======================================================
 
-      const response = await fetch("http://localhost:7001/api/ai", {
+      const response = await fetch("https://amanya-portfolio-backend.onrender.com/api/ai", {
         method: "POST",
 
         headers: {

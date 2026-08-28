@@ -6,7 +6,7 @@ const express = require("express");
 const router = express.Router();
 
 const db = require("../config/database");
-const transporter = require("../config/email");
+const resend = require("../config/email");
 
 // Admin authentication middleware
 const authenticateAdmin = require("../middleware/auth");
@@ -56,12 +56,12 @@ router.post("/", async (req, res) => {
     );
 
     // =======================================================
-    // SEND EMAIL NOTIFICATION
+    // SEND EMAIL NOTIFICATION WITH RESEND
     // =======================================================
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_TO,
+    const { data, error } = await resend.emails.send({
+      from: "Amanya Godfrey Portfolio <onboarding@resend.dev>",
+      to: [process.env.EMAIL_TO],
 
       subject: `New Portfolio Message: ${
         subject || "No Subject"
@@ -82,6 +82,21 @@ Database Message ID: ${result.insertId}
     });
 
     // =======================================================
+    // CHECK RESEND ERROR
+    // =======================================================
+
+    if (error) {
+      console.error("Resend email error:", error);
+
+      return res.status(500).json({
+        success: false,
+        message:
+          "Message was saved, but the email notification could not be sent.",
+        id: result.insertId,
+      });
+    }
+
+    // =======================================================
     // SUCCESS RESPONSE
     // =======================================================
 
@@ -89,9 +104,14 @@ Database Message ID: ${result.insertId}
       success: true,
       message: "Your message has been sent successfully.",
       id: result.insertId,
+      emailId: data?.id,
     });
 
   } catch (error) {
+
+    // =======================================================
+    // ERROR HANDLING
+    // =======================================================
 
     console.error("Contact form error:", error);
 
@@ -101,7 +121,6 @@ Database Message ID: ${result.insertId}
     });
   }
 });
-
 
 // =========================================================
 // GET /api/contact
@@ -153,7 +172,6 @@ router.get(
     }
   }
 );
-
 
 // =========================================================
 // EXPORT ROUTER

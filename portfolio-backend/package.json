@@ -21,7 +21,8 @@
     "jsonwebtoken": "^9.0.3",
     "mysql2": "^3.24.2",
     "nodemailer": "^9.0.5",
-    "openai": "^7.7.0"
+    "openai": "^7.7.0",
+    "resend": "^6.25.0"
   },
   "devDependencies": {
     "@types/node": "^26.4.0",

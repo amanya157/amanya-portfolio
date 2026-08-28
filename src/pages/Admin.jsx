@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./Admin.css";
 
@@ -16,7 +17,7 @@ function Admin() {
 
     try {
       const response = await fetch(
-        "http://localhost:7001/api/admin/login",
+        "https://amanya-portfolio-backend.onrender.com/api/admin/login",
         {
           method: "POST",
 
@@ -199,3 +200,4 @@ function Admin() {
 }
 
 export default Admin;
+

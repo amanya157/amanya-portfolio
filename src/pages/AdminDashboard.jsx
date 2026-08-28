@@ -44,7 +44,7 @@ function AdminDashboard() {
         // =================================================
 
         const response = await fetch(
-          "http://localhost:7001/api/contact",
+          "https://amanya-portfolio-backend.onrender.com/api/contact",
           {
             method: "GET",
 

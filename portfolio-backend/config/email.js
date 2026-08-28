@@ -1,26 +1,17 @@
 // =========================================================
-// EMAIL CONFIGURATION
+// EMAIL CONFIGURATION - RESEND
 // =========================================================
 
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
 // =========================================================
-// CREATE EMAIL TRANSPORTER
+// CREATE RESEND CLIENT
 // =========================================================
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // =========================================================
-// EXPORT TRANSPORTER
+// EXPORT RESEND CLIENT
 // =========================================================
 
-module.exports = transporter;
+module.exports = resend;
