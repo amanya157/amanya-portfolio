@@ -34,14 +34,51 @@ app.use(helmet());
 // CORS
 // =========================================================
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+
+  // Main Vercel production domain
+  "https://amanya-portfolio.vercel.app",
+
+  // Current Vercel deployment
+  "https://amanya-portfolio-4224iwvxj-amanya-godfreys-projects.vercel.app",
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://127.0.0.1:5173",
-      "https://amanya-portfolio.vercel.app",
-      "https://amanya-portfolio-4224iwvxj-amanya-godfreys-projects.vercel.app",
+    origin: function (origin, callback) {
+
+      // Allow requests without an origin
+      // such as Postman or server-to-server requests
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(
+        new Error("Not allowed by CORS")
+      );
+    },
+
+    methods: [
+      "GET",
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE",
+      "OPTIONS",
     ],
+
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+    ],
+
+    credentials: true,
   })
 );
 
@@ -105,6 +142,27 @@ app.use((req, res) => {
   res.status(404).json({
     success: false,
     message: "Route not found.",
+  });
+});
+
+// =========================================================
+// ERROR HANDLER
+// =========================================================
+
+app.use((err, req, res, next) => {
+
+  console.error("Server error:", err.message);
+
+  if (err.message === "Not allowed by CORS") {
+    return res.status(403).json({
+      success: false,
+      message: "CORS policy blocked this request.",
+    });
+  }
+
+  res.status(500).json({
+    success: false,
+    message: "Internal server error.",
   });
 });
 
