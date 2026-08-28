@@ -7,29 +7,38 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 
+import logo from "../assets/logo.png";
+
 function Footer() {
   return (
     <footer className="footer">
 
       {/* =================================================
           MAIN FOOTER CONTENT
-          ================================================= */}
+      ================================================== */}
 
       <div className="footer-container">
 
         {/* =================================================
             PERSONAL BRAND
-            ================================================= */}
+        ================================================== */}
 
         <div className="footer-brand">
 
-          <a href="#home" className="footer-logo">
+          <a
+            href="#home"
+            className="footer-logo"
+          >
+
             <img
-              src="/src/assets/logo.png"
+              src={logo}
               alt="Amanya Godfrey logo"
             />
 
-            <span>Amanya Godfrey</span>
+            <span>
+              Amanya Godfrey
+            </span>
+
           </a>
 
           <p className="footer-description">
@@ -46,36 +55,54 @@ function Footer() {
 
         {/* =================================================
             QUICK LINKS
-            ================================================= */}
+        ================================================== */}
 
         <div className="footer-column">
 
-          <h3>Quick Links</h3>
+          <h3>
+            Quick Links
+          </h3>
 
-          <a href="#home">Home</a>
+          <a href="#home">
+            Home
+          </a>
 
-          <a href="#about">About</a>
+          <a href="#about">
+            About
+          </a>
 
-          <a href="#skills">Skills</a>
+          <a href="#skills">
+            Skills
+          </a>
 
-          <a href="#training">Training</a>
+          <a href="#training">
+            Training
+          </a>
 
-          <a href="#services">Services</a>
+          <a href="#services">
+            Services
+          </a>
 
-          <a href="#support">Support My Work</a>
+          <a href="#support">
+            Support My Work
+          </a>
 
-          <a href="#contact">Contact</a>
+          <a href="#contact">
+            Contact
+          </a>
 
         </div>
 
 
         {/* =================================================
             CONNECT
-            ================================================= */}
+        ================================================== */}
 
         <div className="footer-column">
 
-          <h3>Connect</h3>
+          <h3>
+            Connect
+          </h3>
 
           <a
             href="https://www.linkedin.com/in/amanya-godfrey-74b20b318/"
@@ -110,11 +137,13 @@ function Footer() {
 
         {/* =================================================
             MORE
-            ================================================= */}
+        ================================================== */}
 
         <div className="footer-column">
 
-          <h3>More</h3>
+          <h3>
+            More
+          </h3>
 
           <a href="#support">
             Support My Work
@@ -135,7 +164,7 @@ function Footer() {
 
       {/* =================================================
           SOCIAL ICONS
-          ================================================= */}
+      ================================================== */}
 
       <div className="footer-socials">
 
@@ -165,7 +194,7 @@ function Footer() {
         </a>
 
 
-        {/* WhatsApp - Amanya */}
+        {/* WhatsApp */}
 
         <a
           href="https://wa.me/250794440331"
@@ -178,7 +207,7 @@ function Footer() {
         </a>
 
 
-        {/* WhatsApp - second number */}
+        {/* Second WhatsApp */}
 
         <a
           href="https://wa.me/250756523276"
@@ -206,7 +235,7 @@ function Footer() {
 
       {/* =================================================
           FOOTER BOTTOM
-          ================================================= */}
+      ================================================== */}
 
       <div className="footer-bottom">
 

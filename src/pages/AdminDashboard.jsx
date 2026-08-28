@@ -4,6 +4,7 @@
 
 import { useEffect, useState } from "react";
 import "./AdminDashboard.css";
+import logo from "../assets/logo.png";
 
 function AdminDashboard() {
 
@@ -16,6 +17,7 @@ function AdminDashboard() {
   const [loading, setLoading] = useState(true);
 
   const [error, setError] = useState("");
+
 
   // =======================================================
   // LOAD MESSAGES
@@ -30,14 +32,19 @@ function AdminDashboard() {
         const token =
           localStorage.getItem("adminToken");
 
+
         // =================================================
         // CHECK TOKEN
         // =================================================
 
         if (!token) {
+
           window.location.href = "/admin";
+
           return;
+
         }
+
 
         // =================================================
         // REQUEST MESSAGES
@@ -54,7 +61,9 @@ function AdminDashboard() {
           }
         );
 
+
         const data = await response.json();
+
 
         // =================================================
         // TOKEN INVALID / EXPIRED
@@ -62,36 +71,54 @@ function AdminDashboard() {
 
         if (response.status === 401) {
 
-          localStorage.removeItem("adminToken");
-          localStorage.removeItem("adminUser");
+          localStorage.removeItem(
+            "adminToken"
+          );
+
+          localStorage.removeItem(
+            "adminUser"
+          );
 
           window.location.href = "/admin";
 
           return;
+
         }
+
 
         // =================================================
         // OTHER ERROR
         // =================================================
 
         if (!response.ok) {
+
           throw new Error(
             data.message ||
             "Failed to load messages."
           );
+
         }
+
 
         // =================================================
         // SAVE MESSAGES
         // =================================================
 
-        setMessages(data.messages || []);
+        setMessages(
+          data.messages || []
+        );
 
       } catch (error) {
 
-        console.error(error);
+        console.error(
+          "Dashboard error:",
+          error
+        );
 
-        setError(error.message);
+        setError(
+          error.message ||
+          "Something went wrong."
+        );
 
       } finally {
 
@@ -100,6 +127,7 @@ function AdminDashboard() {
       }
 
     };
+
 
     fetchMessages();
 
@@ -112,9 +140,13 @@ function AdminDashboard() {
 
   const handleLogout = () => {
 
-    localStorage.removeItem("adminToken");
+    localStorage.removeItem(
+      "adminToken"
+    );
 
-    localStorage.removeItem("adminUser");
+    localStorage.removeItem(
+      "adminUser"
+    );
 
     window.location.href = "/admin";
 
@@ -127,7 +159,9 @@ function AdminDashboard() {
 
   const adminUser =
     JSON.parse(
-      localStorage.getItem("adminUser") || "{}"
+      localStorage.getItem(
+        "adminUser"
+      ) || "{}"
     );
 
 
@@ -139,6 +173,7 @@ function AdminDashboard() {
 
     <main className="dashboard-page">
 
+
       {/* =================================================
           SIDEBAR
       ================================================== */}
@@ -148,11 +183,12 @@ function AdminDashboard() {
         <div className="dashboard-brand">
 
           <img
-            src="/src/assets/logo.png"
+            src={logo}
             alt="Amanya Godfrey"
           />
 
           <div>
+
             <strong>
               Amanya Godfrey
             </strong>
@@ -160,6 +196,7 @@ function AdminDashboard() {
             <span>
               Admin
             </span>
+
           </div>
 
         </div>
@@ -198,6 +235,7 @@ function AdminDashboard() {
 
       <section className="dashboard-content">
 
+
         {/* Header */}
 
         <header className="dashboard-header">
@@ -217,7 +255,8 @@ function AdminDashboard() {
           <div className="admin-account">
 
             <span>
-              {adminUser.email || "Administrator"}
+              {adminUser.email ||
+                "Administrator"}
             </span>
 
           </div>
@@ -331,9 +370,7 @@ function AdminDashboard() {
             messages.length === 0 && (
 
               <div className="dashboard-message">
-
                 No contact messages yet.
-
               </div>
 
             )}

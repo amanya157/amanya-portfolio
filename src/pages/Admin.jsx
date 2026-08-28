@@ -1,21 +1,29 @@
-
 import { useState } from "react";
 import "./Admin.css";
+import logo from "../assets/logo.png";
 
 function Admin() {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+
+  // =======================================================
+  // ADMIN LOGIN
+  // =======================================================
+
   const handleLogin = async (e) => {
+
     e.preventDefault();
 
     setError("");
     setLoading(true);
 
     try {
+
       const response = await fetch(
         "https://amanya-portfolio-backend.onrender.com/api/admin/login",
         {
@@ -32,44 +40,72 @@ function Admin() {
         }
       );
 
+
       const data = await response.json();
 
+
       if (!response.ok) {
+
         throw new Error(
           data.message || "Login failed."
         );
+
       }
 
-      // Save JWT token
+
+      // ===================================================
+      // SAVE JWT TOKEN
+      // ===================================================
+
       localStorage.setItem(
         "adminToken",
         data.token
       );
 
-      // Save admin information
+
+      // ===================================================
+      // SAVE ADMIN INFORMATION
+      // ===================================================
+
       localStorage.setItem(
         "adminUser",
         JSON.stringify(data.admin)
       );
 
-      // Go to dashboard
+
+      // ===================================================
+      // GO TO DASHBOARD
+      // ===================================================
+
       window.location.href = "/admin/dashboard";
 
     } catch (error) {
 
-      setError(error.message);
+      console.error(
+        "Admin login error:",
+        error
+      );
+
+      setError(
+        error.message ||
+        "Something went wrong."
+      );
 
     } finally {
 
       setLoading(false);
 
     }
+
   };
 
+
   return (
+
     <main className="admin-page">
 
       <div className="admin-login-container">
+
 
         {/* =================================================
             BRAND
@@ -78,13 +114,17 @@ function Admin() {
         <div className="admin-brand">
 
           <img
-            src="/src/assets/logo.png"
+            src={logo}
             alt="Amanya Godfrey"
           />
 
-          <h1>Amanya Godfrey</h1>
+          <h1>
+            Amanya Godfrey
+          </h1>
 
-          <p>Administrator Portal</p>
+          <p>
+            Administrator Portal
+          </p>
 
         </div>
 
@@ -95,7 +135,9 @@ function Admin() {
 
         <div className="admin-login-card">
 
-          <h2>Welcome Back</h2>
+          <h2>
+            Welcome Back
+          </h2>
 
           <p className="admin-subtitle">
             Sign in to access your portfolio dashboard.
@@ -107,9 +149,11 @@ function Admin() {
           ================================================== */}
 
           {error && (
+
             <div className="admin-error">
               {error}
             </div>
+
           )}
 
 
@@ -118,6 +162,7 @@ function Admin() {
           ================================================== */}
 
           <form onSubmit={handleLogin}>
+
 
             {/* Email */}
 
@@ -196,8 +241,8 @@ function Admin() {
       </div>
 
     </main>
+
   );
 }
 
 export default Admin;
-
