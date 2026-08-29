@@ -1,11 +1,28 @@
+
 // =========================================================
 // NAVBAR
 // =========================================================
 
+import { useState } from "react";
 import "./Navbar.css";
 import logo from "../assets/logo.png";
 
 function Navbar() {
+
+  // =======================================================
+  // MOBILE MENU STATE
+  // =======================================================
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // =======================================================
+  // CLOSE MOBILE MENU
+  // =======================================================
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <header className="navbar">
 
@@ -18,6 +35,7 @@ function Navbar() {
         <a
           href="#home"
           className="brand"
+          onClick={closeMenu}
         >
 
           <img
@@ -31,49 +49,38 @@ function Navbar() {
 
         </a>
 
+
         {/* =================================================
-            NAVIGATION LINKS
+            DESKTOP NAVIGATION LINKS
         ================================================== */}
 
         <nav className="nav-links">
 
-          <a href="#home">
-            Home
-          </a>
+          <a href="#home">Home</a>
 
-          <a href="#about">
-            About
-          </a>
+          <a href="#about">About</a>
 
-          <a href="#skills">
-            Skills
-          </a>
+          <a href="#skills">Skills</a>
 
-          <a href="#training">
-            Training
-          </a>
+          <a href="#training">Training</a>
 
-          <a href="#services">
-            Services
-          </a>
+          <a href="#services">Services</a>
 
-          <a href="#support">
-            Support
-          </a>
+          <a href="#support">Support</a>
 
-          <a href="#contact">
-            Contact
-          </a>
+          <a href="#contact">Contact</a>
 
         </nav>
 
+
         {/* =================================================
             NAVIGATION ACTIONS
+            These remain visible on mobile.
         ================================================== */}
 
         <div className="nav-actions">
 
-          {/* Admin Login */}
+          {/* Admin */}
 
           <a
             href="/admin"
@@ -82,7 +89,8 @@ function Navbar() {
             Admin
           </a>
 
-          {/* Contact */}
+
+          {/* Get In Touch */}
 
           <a
             href="#contact"
@@ -93,10 +101,71 @@ function Navbar() {
 
         </div>
 
+
+        {/* =================================================
+            MOBILE MENU BUTTON
+        ================================================== */}
+
+        <button
+          className={`menu-toggle ${menuOpen ? "active" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+        >
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </button>
+
       </div>
+
+
+      {/* =================================================
+          MOBILE NAVIGATION MENU
+
+          Only normal navigation links appear here.
+          Admin and Get In Touch stay in the navbar above.
+      ================================================== */}
+
+      <nav
+        className={`mobile-menu ${menuOpen ? "open" : ""}`}
+      >
+
+        <a href="#home" onClick={closeMenu}>
+          Home
+        </a>
+
+        <a href="#about" onClick={closeMenu}>
+          About
+        </a>
+
+        <a href="#skills" onClick={closeMenu}>
+          Skills
+        </a>
+
+        <a href="#training" onClick={closeMenu}>
+          Training
+        </a>
+
+        <a href="#services" onClick={closeMenu}>
+          Services
+        </a>
+
+        <a href="#support" onClick={closeMenu}>
+          Support
+        </a>
+
+        <a href="#contact" onClick={closeMenu}>
+          Contact
+        </a>
+
+      </nav>
 
     </header>
   );
 }
 
 export default Navbar;
+
